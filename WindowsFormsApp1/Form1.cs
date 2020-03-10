@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
 
         private void cmdRun_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == "")
+            /*if (txtNome.Text == "")
             {
                 //Primeiro texto preenche o quadro
                 //Segundo texto preenche a label do quadro
@@ -28,24 +28,33 @@ namespace WindowsFormsApp1
                 txtNome.Focus();
                 return;
             }
-            MessageBox.Show("Olá " + txtNome.Text);
+            MessageBox.Show("Olá " + txtNome.Text);*/
+
+            Dado dado = new Dado(Int32.Parse(txtNome.Text), txtNome.Text, "Dado");
+
+            nome.Text = dado.Lancar();
         }
 
         private void cmdRun_MouseMove(object sender, MouseEventArgs e)
         {
-            Random r = new Random();
+            //Random r = new Random();
 
             //.Left manipula o eixo X
-            txtNome.Left = r.Next(this.Size.Width);
+            //txtNome.Left = r.Next(this.Size.Width);
 
             //.Top manipula o eixo Y
-            txtNome.Top = r.Next(this.Size.Height);
+            //txtNome.Top = r.Next(this.Size.Height);
         }
 
         private void frmExemplo1_Load(object sender, EventArgs e)
         {
             Random r = new Random();
             this.BackColor = Color.FromArgb(r.Next(255), r.Next(255), r.Next(255));
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            this.BackColor = Color.FromArgb((int)numericUpDown1.Value, 0, 0);
         }
     }
 }
